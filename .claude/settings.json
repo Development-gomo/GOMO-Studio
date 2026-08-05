@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /tmp/home.html -w \"%{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(netstat -ano)",
+      "Bash(tasklist //FI \"PID eq 16020\")",
+      "Bash(curl -s http://localhost:3001/)",
+      "Bash(git add *)"
+    ]
+  }
+}

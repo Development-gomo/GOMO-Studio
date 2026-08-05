@@ -1,0 +1,54 @@
+# Conalytic
+
+> Conalytic is AI marketing analytics software with three tools: Conversational Analytics (Chats), KPIs Tracker, and Report Builder (Reports). Connect Google Analytics 4, Google Search Console, Google Ads, Google Tag Manager, Meta Ads, and LinkedIn Ads via OAuth—then chat with live data in plain English, track marketing KPI goals, or generate HTML client presentation decks.
+
+## Products
+
+- [Conversational Analytics](https://conalytic.com/products/conversational-analytics): Natural-language marketing data chat for GA4, Search Console, Google Ads, GTM, and Meta. GPT-5.4, Claude Opus 4.8, or Gemini 3.1 Pro. Inline charts, tables, KPI rows. App nav: **Chats**.
+- [KPIs Tracker](https://conalytic.com/products/kpis-tracker): Marketing KPI dashboard for GA4, GSC, and Google Ads. On track / At risk / Off track status, keyword ranking goals (up to 300 GSC keywords), monthly and YTD views, six months of history. Rules-based—not AI scores. App nav: **KPIs**.
+- [Report Builder](https://conalytic.com/products/report-builder): Automated HTML marketing report decks from GA4, GSC, Google Ads, and GTM. Executive summary, platform sections, cross-source findings, optional AI insights, action plan. App nav: **Reports**.
+
+## Keywords
+
+conversational analytics, GA4 chat, Google Ads AI, KPI tracker, marketing report builder, Search Console reporting, GTM audit, Meta Ads analytics, natural language analytics, agency client reporting, marketing intelligence platform
+
+## App & signup
+
+- Marketing site: https://conalytic.com
+- Product app (login): https://chat.conalytic.com/login
+- Sign up: https://chat.conalytic.com/signup
+
+## Integrations (OAuth, read-only)
+
+| Platform | Chats | KPIs | Reports |
+|----------|-------|------|---------|
+| Google Analytics 4 | Yes | Yes | Yes |
+| Google Search Console | Yes | Yes | Yes |
+| Google Ads | Yes | Yes | Yes |
+| Google Tag Manager | Yes | No | Yes |
+| Meta Ads | Coming soon | No | No |
+| LinkedIn Ads | Coming soon | No | No |
+
+## Company
+
+- Name: Conalytic
+- Location: Pune, Maharashtra, India
+- Email: admin@conalytic.com
+- Tagline: Casting Spells of Clarity on Your Data
+
+## Policies
+
+- Privacy: https://conalytic.com/legal/privacy-and-policy
+- Terms: https://conalytic.com/legal/terms-of-service
+
+## Blog guides
+
+- Blog index: https://conalytic.com/resources/blogs
+- https://conalytic.com/resources/blogs/conversational-analytics-marketing-chat-guide
+- https://conalytic.com/resources/blogs/kpis-tracker-marketing-goals-guide
+- https://conalytic.com/resources/blogs/report-builder-html-marketing-reports-guide
+- https://conalytic.com/resources/blogs/ga4-traffic-drop-search-console
+
+## Pricing model
+
+Conalytic Pro: free to start. Conversational Analytics and optional AI report insights use usage-based pricing. KPIs Tracker uses live platform APIs for goal monitoring.

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <path fill="#94a3b8" opacity="0.45" d="M0 300 C96 180 192 260 288 220 C384 180 448 200 512 240 L512 512 L0 512 Z"/>
+  <path fill="#64748b" opacity="0.55" d="M0 340 C128 240 256 320 384 280 C448 260 480 270 512 290 L512 512 L0 512 Z"/>
+  <path fill="#334155" opacity="0.75" d="M0 380 C160 300 288 360 416 320 C464 300 492 310 512 330 L512 512 L0 512 Z"/>
+  <path fill="#1e293b" d="M0 420 C192 340 320 400 512 360 L512 512 L0 512 Z"/>
+</svg>

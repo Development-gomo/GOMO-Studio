@@ -1,0 +1,34 @@
+{
+  "name": "gomo-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate:sitemap": "node scripts/generate-sitemap.cjs",
+    "prebuild": "node scripts/generate-sitemap.cjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@vercel/analytics": "^2.0.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.6.2",
+    "lucide-react": "^0.479.0",
+    "next": "^15.2.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^9.0.3",
+    "remark-gfm": "^4.0.0",
+    "resend": "^6.10.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "^15.2.9",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.0"
+  }
+}

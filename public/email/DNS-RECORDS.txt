@@ -1,0 +1,32 @@
+Conalytic email branding — add these DNS records in Cloudflare
+================================================================
+
+Prerequisites (Resend dashboard):
+- Domain conalytic.com verified (SPF + DKIM green)
+
+1) DMARC (required before Gmail shows BIMI logo)
+Record type: TXT
+Name: _dmarc
+Content: v=DMARC1; p=quarantine; pct=100; rua=mailto:admin@conalytic.com; adkim=s; aspf=s
+
+After 2–4 weeks of clean sending, upgrade to:
+v=DMARC1; p=reject; pct=100; rua=mailto:admin@conalytic.com; adkim=s; aspf=s
+
+2) BIMI logo record
+Record type: TXT
+Name: default._bimi
+Content: v=BIMI1; l=https://conalytic.com/email/bimi-logo.svg;
+
+Gmail also requires a certificate (VMC or CMC) in the record:
+v=BIMI1; l=https://conalytic.com/email/bimi-logo.svg; a=https://conalytic.com/email/bimi-certificate.pem;
+
+Obtain CMC/VMC from a BIMI provider (e.g. DigiCert, Entrust) after DMARC is at enforcement.
+
+3) Hosted assets (deployed with the website)
+- Logo PNG (512×512): https://conalytic.com/email/logo-512.png
+- BIMI SVG: https://conalytic.com/email/bimi-logo.svg
+
+4) Resend sender format
+RESEND_FROM=Conalytic <admin@conalytic.com>
+
+Logo in Gmail inbox list appears only after BIMI + DMARC enforcement + certificate (not from PNG alone).

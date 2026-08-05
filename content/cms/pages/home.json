@@ -1,0 +1,45 @@
+{
+  "seo": {
+    "title": "GOMO Studio – AI Website Editor & Quick CMS"
+  },
+  "sections": {
+    "heroTitleLine1": "Edit your website with",
+    "heroTitleLine2": "AI, not tickets",
+    "heroSubtitle": "Describe the copy you want and let AI draft it, edit any section in a structured visual editor, preview the real page, and publish — no code, no deploy, no dev ticket.",
+    "heroPrimaryCtaLabel": "Get started",
+    "heroSecondaryCtaLabel": "Book a demo",
+    "trustedByTitle": "Works with your stack",
+    "integrationsTitleLine1": "Works with",
+    "integrationsTitleLine2": "the stack you already deploy on",
+    "integrationsSubtitle": "Publishing writes straight to your repo and deployment — no extra setup required.",
+    "testimonialsTitleLine1": "What our customers say",
+    "testimonialsTitleLine2": "about us",
+    "testimonialsSubtitle": "Teams using GOMO Studio ship content changes faster, without waiting on engineering.",
+    "faqTitle": "Frequently asked questions",
+    "faqSubtitle": "Everything you need to know about GOMO Studio.",
+    "faqContactPrefix": "Still have questions?",
+    "faqContactLabel": "Talk to our team",
+    "ctaTitle": "Ready to Manage Your Website Content?",
+    "ctaSubtitle": "Join 2,000+ teams already using GOMO Studio to edit, generate, and publish faster",
+    "ctaPrimaryLabel": "Get started",
+    "ctaSecondaryLabel": "Book a demo"
+  },
+  "layout": {
+    "sectionOrder": [
+      "hero",
+      "trustedBy",
+      "transformation",
+      "howItWorks",
+      "capabilities",
+      "stats",
+      "integrations",
+      "testimonials",
+      "pricing",
+      "faq",
+      "cta"
+    ],
+    "hiddenSections": [
+      "trustedBy"
+    ]
+  }
+}
