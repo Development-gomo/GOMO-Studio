@@ -1,7 +1,7 @@
 /**
  * Home route (/): static marketing page with WebPage + FAQPage JSON-LD.
  */
-import { HomeClient } from "@/components/home/HomeClient";
+import { MainHome } from "@/components/home/main/MainHome";
 import { HomeStructuredData } from "@/components/seo/HomeStructuredData";
 import { DEFAULT_HOME_FAQ } from "@/lib/default-home-faq";
 import { getPublishedPageOverlay } from "@/lib/cms/get-page-content";
@@ -29,15 +29,14 @@ export async function generateMetadata() {
 
 export default async function HomePage() {
   const overlay = await getPublishedPageOverlay("/");
-  const content = overlay?.sections;
   const homeLdTitle = "AI website editing with Content, Visual Editor, and Publishing";
   const homeLdDescription = overlay?.seo?.description ?? PAGE_DESCRIPTION;
 
   return (
     <>
       <HomeStructuredData faqItems={[...DEFAULT_HOME_FAQ]} pageTitle={homeLdTitle} pageDescription={homeLdDescription} />
-      <HomeClient
-        content={content}
+      <MainHome
+        content={overlay?.sections}
         sectionOrder={overlay?.layout?.sectionOrder}
         hiddenSections={overlay?.layout?.hiddenSections}
       />

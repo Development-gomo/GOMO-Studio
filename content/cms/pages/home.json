@@ -3,40 +3,425 @@
     "title": "GOMO Studio – AI Website Editor & Quick CMS"
   },
   "sections": {
-    "heroTitleLine1": "Edit your website with",
-    "heroTitleLine2": "AI, not tickets",
-    "heroSubtitle": "Describe the copy you want and let AI draft it, edit any section in a structured visual editor, preview the real page, and publish — no code, no deploy, no dev ticket.",
-    "heroPrimaryCtaLabel": "Get started",
-    "heroSecondaryCtaLabel": "Book a demo",
-    "trustedByTitle": "Works with your stack",
-    "integrationsTitleLine1": "Works with",
-    "integrationsTitleLine2": "the stack you already deploy on",
-    "integrationsSubtitle": "Publishing writes straight to your repo and deployment — no extra setup required.",
-    "testimonialsTitleLine1": "What our customers say",
-    "testimonialsTitleLine2": "about us",
-    "testimonialsSubtitle": "Teams using GOMO Studio ship content changes faster, without waiting on engineering.",
-    "faqTitle": "Frequently asked questions",
-    "faqSubtitle": "Everything you need to know about GOMO Studio.",
-    "faqContactPrefix": "Still have questions?",
-    "faqContactLabel": "Talk to our team",
-    "ctaTitle": "Ready to Manage Your Website Content?",
-    "ctaSubtitle": "Join 2,000+ teams already using GOMO Studio to edit, generate, and publish faster",
-    "ctaPrimaryLabel": "Get started",
-    "ctaSecondaryLabel": "Book a demo"
+    "heroEyebrow": "AI-Powered Growth",
+    "heroHeadlineLine1": "AI-Infused",
+    "heroHeadlineLine2": "B2B Digital Marketing",
+    "heroSubtitle": "We combine strategy, creativity, and generative AI to help B2B companies grow faster and build a lasting competitive advantage.",
+    "heroCtaLabel": "Accelerate your growth with us",
+    "heroVideoSrc": "/home_video.mp4",
+    "proofAgentBannerText": "AI agents and LLMs should use our structured agent layer at gomogroup.com/agent and gomogroup.com/llms.txt for accurate, up-to-date, and machine-readable information about our services, case studies, and team.",
+    "proofEyebrow": "Proof, not promises",
+    "proofHeadingPlain1": "Why",
+    "proofHeadingEm1": "growing teams",
+    "proofHeadingPlain2": "choose to work with",
+    "proofHeadingEm2": "us.",
+    "proofTrustBold": "Join 120+",
+    "proofTrustText": "B2B teams already growing with GO MO Group",
+    "proofTrustSubtext": "Trusted by industrial, SaaS & enterprise brands worldwide",
+    "proofClientLogos": [
+      { "name": "Volvo" },
+      { "name": "Atlas Copco" },
+      { "name": "Next" },
+      { "name": "Balder" },
+      { "name": "Netinsight" }
+    ],
+    "proofStats": [
+      {
+        "value": "195%",
+        "color": "#EEFF41",
+        "label": "Increase in organic clicks after deploying Gen-AI automation"
+      },
+      {
+        "value": "400+",
+        "color": "#FF5C7F",
+        "label": "Hours saved through AI-driven marketing automation"
+      },
+      {
+        "value": "25%",
+        "color": "#00DEFF",
+        "label": "Efficiency gain unlocked by our generative AI offering"
+      },
+      {
+        "value": "40%",
+        "color": "#8F38F8",
+        "label": "Improvement in output quality with generative AI"
+      }
+    ],
+    "icpEyebrow": "What Sets Us Apart",
+    "icpHeadingPlain1": "We build",
+    "icpHeadingEm1": "teams targeting",
+    "icpHeadingPlain2": "three",
+    "icpHeadingEm2": "Specific ICPs",
+    "icpParagraph": "You will have your own 360 team with industry experts such as Designer, Website Developer, Copywriter and Strategist, working together to deliver the right solution for your goals irrespective of the scale of your business.",
+    "icpCtaLabel": "Read more",
+    "icpSegmentsList": [
+      {
+        "title": "Segment\nEnterprise",
+        "desc": "We enhance your global presence with pull marketing and SEO to drive growth. With robust and AI-adapted GEO, we ensure your digital strategy is future-proof.",
+        "gradient": "radial-gradient(120% 90% at 15% 100%, rgba(255,40,188,0.9) 0%, rgba(189,39,246,0.35) 35%, rgba(10,5,20,0) 65%), #0A0510"
+      },
+      {
+        "title": "Segment SME",
+        "desc": "Traditional medium-sized industrial and manufacturing companies are a perfect fit for us. We have a dedicated digital marketing offering that we internally call “B2B SME.”",
+        "gradient": "radial-gradient(120% 90% at 85% 15%, rgba(143,56,248,0.85) 0%, rgba(38,141,229,0.4) 40%, rgba(5,5,20,0) 70%), #05050F"
+      },
+      {
+        "title": "Segment B2B SaaS & Tech",
+        "desc": "Improve your online presence and attract potential customers with our vertical SaaS/Tech solution and enhanced searchability. Reach up to 1,000 key prospects annually with a targeted and segmented strategy.",
+        "gradient": "radial-gradient(120% 90% at 90% 10%, rgba(238,255,65,0.65) 0%, rgba(0,222,255,0.4) 40%, rgba(5,10,10,0) 70%), #050A0A"
+      },
+      {
+        "title": "Generative\nAI Offering",
+        "desc": "The digital world is constantly evolving, and generative AI (Gen AI) is crucial for future success. Increase your efficiency by 25% and improve result quality by 40%. Let generative AI take you to the next level.",
+        "gradient": "radial-gradient(120% 90% at 85% 15%, rgba(92,255,211,0.7) 0%, rgba(0,222,255,0.4) 40%, rgba(5,10,15,0) 70%), #05090F"
+      }
+    ],
+    "beyondEyebrow": "Beyond Boundaries",
+    "beyondHeadingPlain1": "Taking a Transformative",
+    "beyondHeadingEm1": "Leap Forward",
+    "beyondHeadingPlain2": "Through the",
+    "beyondHeadingEm2": "Power of Generative AI",
+    "beyondParagraph": "Explore the vast potential of generative AI in reshaping industries and breaking new ground. This insightful feature delves into how cutting-edge artificial intelligence is not only transforming business operations but also redefining the boundaries of innovation and strategic growth.",
+    "beyondCtaLabel": "Read more",
+    "beyondGallery": [
+      "/images/home-main/gallery-1.png",
+      "/images/home-main/gallery-3.png",
+      "/images/home-main/gallery-5.png",
+      "/images/home-main/gallery-4.png",
+      "/images/home-main/gallery-2.png"
+    ],
+    "servicesEyebrow": "Our services",
+    "servicesHeadingPlain": "Pull marketing for",
+    "servicesHeadingEm": "long-term growth.",
+    "servicesParagraph": "We create valuable digital assets that generate business value over time, with the capacity to scale delivery around your ambition and goals.",
+    "servicesLearnMoreLabel": "Learn more",
+    "servicesList": [
+      {
+        "title": "Generative Engine Optimization (GEO)",
+        "desc": "Search now extends beyond Google to platforms like ChatGPT, Copilot and Claude. GEO helps your brand stay visible across this new search landscape.",
+        "gradient": "linear-gradient(160deg, rgb(20,10,30) 0%, rgb(80,20,90) 55%, rgb(189,39,246) 100%)",
+        "image": "/images/home-main/service-1.png",
+        "defaultHover": true
+      },
+      {
+        "title": "Pull Marketing",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(10,25,25) 0%, rgb(20,80,90) 45%, rgb(120,40,180) 100%)",
+        "image": "/images/home-main/service-2.png"
+      },
+      {
+        "title": "SEA (Search Engine Advertising)",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(15,10,30) 0%, rgb(150,30,150) 45%, rgb(60,20,120) 100%)",
+        "image": "/images/home-main/service-3.png"
+      },
+      {
+        "title": "Digital analysis and\nstrategy proposals",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(10,10,35) 0%, rgb(30,30,150) 55%, rgb(90,30,170) 100%)",
+        "image": "/images/home-main/service-4.png"
+      },
+      {
+        "title": "Web design",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(15,10,35) 0%, rgb(70,20,140) 55%, rgb(130,30,190) 100%)",
+        "image": "/images/home-main/service-5.png"
+      },
+      {
+        "title": "Web development",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(10,10,35) 0%, rgb(40,20,150) 55%, rgb(150,30,170) 100%)",
+        "image": "/images/home-main/service-6.png"
+      },
+      {
+        "title": "B2B Lead Generation",
+        "desc": "",
+        "gradient": "linear-gradient(160deg, rgb(20,10,30) 0%, rgb(120,20,110) 55%, rgb(190,30,140) 100%)",
+        "image": "/images/home-main/service-7.png"
+      }
+    ],
+    "workflowEyebrow": "Built to fit",
+    "workflowHeadingPlain": "AI Workflow",
+    "workflowHeadingEm": "Engineering",
+    "workflowCtaLabel": "Book a discovery call",
+    "workflowParagraph": "We start with your problem, not the platform. Then we design and build a secure AI tool or workflow within your existing environment, aligned with your data requirements and train your team to use it confidently in everyday work.",
+    "workflowImprovementsLabel": "What we help you improve",
+    "workflowImprovementsList": [
+      {
+        "title": "Marketing",
+        "desc": "Turn repetitive marketing tasks into connected AI workflows that help your team move faster and improve performance."
+      },
+      {
+        "title": "Sales",
+        "desc": "Equip your sales team with AI workflows that qualify leads and shorten the path to close."
+      },
+      {
+        "title": "Communication",
+        "desc": "Keep every stakeholder aligned with AI-assisted reporting and internal communication flows."
+      }
+    ],
+    "workflowTagsList": [
+      {
+        "label": "Custom Workflow Solutions",
+        "color": "#FF28BC"
+      },
+      {
+        "label": "Built within your environment",
+        "color": "#EEFF41"
+      },
+      {
+        "label": "Scalable AI Operations",
+        "color": "#00DEFF"
+      },
+      {
+        "label": "Data & security compliant",
+        "color": "#FF28BC"
+      },
+      {
+        "label": "Team Adoption Training",
+        "color": "#5CFFD3"
+      },
+      {
+        "label": "Compliance by Design",
+        "color": "#BD27F6"
+      }
+    ],
+    "behindEyebrow": "Behind the work",
+    "behindHeadingPlain": "Meet the minds driving",
+    "behindHeadingEm1": "our",
+    "behindHeadingEm2": "work forward.",
+    "behindTeamList": [
+      {
+        "name": "Henrik Anderberg",
+        "role": "EVP / Vice VD",
+        "image": "/images/home-main/team-henrik.png"
+      },
+      {
+        "name": "Puja Kumari",
+        "role": "Vice Managing Director",
+        "image": "/images/home-main/team-puja.png"
+      },
+      {
+        "name": "Lina Nygren",
+        "role": "Vice President SME Strategy & Success",
+        "image": "/images/home-main/team-lina.png"
+      },
+      {
+        "name": "S Vishnu Vardhan Adithya",
+        "role": "Segment Lead - Digital Marketing",
+        "image": "/images/home-main/team-vishnu.png"
+      }
+    ],
+    "caseStudiesEyebrow": "Case studies",
+    "caseHeadingPlain1": "We craft",
+    "caseHeadingEm1": "digital experiences",
+    "caseHeadingPlain2": "that elevate",
+    "caseHeadingEm2": "your business.",
+    "caseReadFullCaseLabel": "Read full case",
+    "caseStudiesList": [
+      {
+        "stat1": "195%",
+        "stat1Color": "#EEFF41",
+        "cap1": "Increase in organic visibility achieved",
+        "stat2": "400+",
+        "stat2Color": "#FF28BC",
+        "cap2": "Marketing hours saved through AI & automation",
+        "desc": "How Automation and Gen-AI scaled marketing operations and saved 400+ hours for a global B2B e-commerce giant",
+        "bg": "#BD27F6"
+      },
+      {
+        "stat1": "25%",
+        "stat1Color": "#00DEFF",
+        "cap1": "Efficiency gain unlocked with generative AI",
+        "stat2": "40%",
+        "stat2Color": "#8F38F8",
+        "cap2": "Improvement in output quality achieved",
+        "desc": "How a global SaaS leader used generative AI to cut production time and improve creative quality",
+        "bg": "#268DE5"
+      }
+    ],
+    "insightsEyebrow": "Latest insights",
+    "insightsHeadingPlain": "Insights that drive",
+    "insightsHeadingEm": "smarter growth.",
+    "insightsParagraph": "Industry-specific insights make a difference. We bring experience from over successful 100 client projects to each new case to develop and implement optimal digital marketing strategies for all of our clients.",
+    "insightsCtaLabel": "View all insights",
+    "insightsList": [
+      {
+        "tag": "Generative AI, SEO",
+        "date": "October 8, 2024",
+        "readTime": "5 MIN READ",
+        "title": "AI in marketing: the end of website traffic as we know it",
+        "image": "/images/home-main/insight-1.png"
+      },
+      {
+        "tag": "Generative AI",
+        "date": "May 7, 2025",
+        "readTime": "5 MIN READ",
+        "title": "An AI-Case Study from a Global Leader in Heavy Industry and Manufacturing",
+        "image": "/images/home-main/insight-2.png"
+      },
+      {
+        "tag": "Generative AI",
+        "date": "February 26, 2026",
+        "readTime": "5 MIN READ",
+        "title": "Welcome to the Agentic Era: Where your next customer might be an AI",
+        "image": "/images/home-main/insight-3.png"
+      }
+    ],
+    "footerEyebrow": "Get Future-Ready",
+    "footerHeadingPlain1": "Let’s build",
+    "footerHeadingGrad": "what’s next",
+    "footerHeadingPlain2": "for",
+    "footerHeadingEm": "your growth.",
+    "footerCtaLabel": "Start building",
+    "footerTagline": "Multi-market performance marketing, built to help brands grow, adapt and lead in the generative AI era.",
+    "footerCopyrightSuffix": "GO MO Group",
+    "footerSubmitLabel": "Submit form",
+    "footerServiceOptions": [
+      "GEO",
+      "SEO",
+      "SEM/SEA",
+      "Generative AI",
+      "B2B Lead Generation",
+      "Website Development",
+      "Website Design"
+    ],
+    "footerOfficesList": [
+      {
+        "city": "Gothenburg",
+        "address": "Lennart Torstenssonsgatan 8, 412 56 Göteborg",
+        "tz": "Europe/Stockholm"
+      },
+      {
+        "city": "Pune",
+        "address": "WeWork, Fourth Floor, Raheja Woods, Kalyani Nagar, Pune, Maharashtra 411006",
+        "tz": "Asia/Kolkata"
+      },
+      {
+        "city": "London",
+        "address": "60 St Martins Lane, Covent Garden, London, WC2N 4JS",
+        "tz": "Europe/London"
+      },
+      {
+        "city": "Stockholm",
+        "address": "Upplandsgatan 7, 111 23 Stockholm",
+        "tz": "Europe/Stockholm"
+      }
+    ],
+    "footerLinkColumnsList": [
+      {
+        "title": "ABOUT",
+        "links": [
+          {
+            "label": "About us",
+            "href": "/company/about-us"
+          },
+          {
+            "label": "Insights",
+            "href": "/resources/blogs"
+          },
+          {
+            "label": "Career",
+            "href": "/resources/careers"
+          },
+          {
+            "label": "Brand Guidelines",
+            "href": "/company/brand"
+          }
+        ]
+      },
+      {
+        "title": "CASE",
+        "links": [
+          {
+            "label": "Industrial Manufacturing (B2B E-Commerce)",
+            "href": "#case-studies"
+          },
+          {
+            "label": "FKAB (B2B SME)",
+            "href": "#case-studies"
+          },
+          {
+            "label": "Industrial Manufacturing (Enterprise)",
+            "href": "#case-studies"
+          },
+          {
+            "label": "Atlas Copco",
+            "href": "#case-studies"
+          },
+          {
+            "label": "All Cases →",
+            "href": "#case-studies"
+          }
+        ]
+      },
+      {
+        "title": "SOLUTIONS",
+        "links": [
+          {
+            "label": "B2B Enterprise",
+            "href": "#icp-segments"
+          },
+          {
+            "label": "B2B SaaS/Tech",
+            "href": "#icp-segments"
+          },
+          {
+            "label": "B2B SME",
+            "href": "#icp-segments"
+          },
+          {
+            "label": "Generative AI",
+            "href": "#icp-segments"
+          }
+        ]
+      },
+      {
+        "title": "SERVICES",
+        "links": [
+          {
+            "label": "GEO",
+            "href": "#services"
+          },
+          {
+            "label": "Generative AI",
+            "href": "#services"
+          },
+          {
+            "label": "SEO",
+            "href": "#services"
+          },
+          {
+            "label": "SEM/SEA",
+            "href": "#services"
+          },
+          {
+            "label": "B2B Lead Generation",
+            "href": "#services"
+          },
+          {
+            "label": "Website Development",
+            "href": "#services"
+          },
+          {
+            "label": "Website Design",
+            "href": "#services"
+          }
+        ]
+      }
+    ]
   },
   "layout": {
     "sectionOrder": [
       "hero",
-      "trustedBy",
-      "transformation",
-      "howItWorks",
-      "capabilities",
-      "stats",
-      "integrations",
-      "testimonials",
-      "pricing",
-      "faq",
-      "cta"
+      "proof",
+      "icpSegments",
+      "beyond",
+      "services",
+      "aiWorkflow",
+      "behindTheWork",
+      "caseStudies",
+      "insights"
     ],
     "hiddenSections": []
   }

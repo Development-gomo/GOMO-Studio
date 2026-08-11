@@ -1,29 +1,25 @@
 /** Default home page section order (matches `content/cms/pages/home.json` layout). */
 export const HOME_DEFAULT_SECTION_ORDER = [
   "hero",
-  "trustedBy",
-  "transformation",
-  "howItWorks",
-  "capabilities",
-  "stats",
-  "integrations",
-  "testimonials",
-  "pricing",
-  "faq",
-  "cta",
+  "proof",
+  "icpSegments",
+  "beyond",
+  "services",
+  "aiWorkflow",
+  "behindTheWork",
+  "caseStudies",
+  "insights",
 ];
 
-/** Human labels for the Studio admin's section reorder/hide panel. */
+/** Human labels for the Studio admin's section reorder/hide panel. Nav and footer are always-on chrome, not reorderable. */
 export const HOME_SECTION_DEFS = [
   { id: "hero", label: "Hero" },
-  { id: "trustedBy", label: "Trusted by / logos" },
-  { id: "transformation", label: "Transformation" },
-  { id: "howItWorks", label: "How it works" },
-  { id: "capabilities", label: "Capabilities" },
-  { id: "stats", label: "Stats" },
-  { id: "integrations", label: "Integrations hub" },
-  { id: "testimonials", label: "Testimonials" },
-  { id: "pricing", label: "Pricing" },
-  { id: "faq", label: "FAQ" },
-  { id: "cta", label: "Bottom CTA" },
+  { id: "proof", label: "Proof / trust bar / stats" },
+  { id: "icpSegments", label: "ICP segment cards" },
+  { id: "beyond", label: "Beyond Boundaries (Gen AI callout)" },
+  { id: "services", label: "Services carousel" },
+  { id: "aiWorkflow", label: "AI Workflow Engineering" },
+  { id: "behindTheWork", label: "Behind the work (team)" },
+  { id: "caseStudies", label: "Case studies spotlight" },
+  { id: "insights", label: "Latest insights" },
 ];

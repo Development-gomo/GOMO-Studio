@@ -7,14 +7,16 @@ import { ScrollRevealInit } from "@/components/layout/ScrollRevealInit";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 
 /**
- * Marketing chrome (nav / main / footer). Legal document pages render their own shell
+ * Marketing chrome (nav / main / footer). Legal document pages and the home page
+ * (its own pixel-perfect nav + footer, see MainHome) render their own shell
  * and skip this wrapper UI.
  */
 export function SiteChrome({ navbar, footer, children }) {
   const pathname = usePathname();
   const legal = isLegalDocumentPath(pathname);
+  const selfChromed = legal || pathname === "/";
 
-  if (legal) {
+  if (selfChromed) {
     return <>{children}</>;
   }
 
