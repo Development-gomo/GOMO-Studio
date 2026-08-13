@@ -186,7 +186,7 @@ export function FooterCta({ content }) {
           <ContactForm content={content} />
         </FadeUp>
 
-        <FadeUp delay={0.1} className="rounded-2xl bg-black/40 p-8 sm:p-16 backdrop-blur-xl">
+        <FadeUp delay={0.1} className="rounded-2xl bg-black/40 p-8 sm:p-16 backdrop-blur-xl realtive">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-6">
             <div className="sm:col-span-2 lg:col-span-2">
               <Image src="/design/home/nav-logo.svg" alt="GOMO Group" width={94} height={24} className="h-6 w-auto" />
@@ -223,7 +223,7 @@ export function FooterCta({ content }) {
             ))}
           </div>
 
-          <div className="mt-12 flex justify-end">
+          <div className="mt-12 flex justify-end absolute right-[55px] bottom-[132px]">
             <Image
               src={content?.partnerBadgesUrl || "/assets/partner-badges.png"}
               alt="2025 & 2026 Microsoft Advertising Elite Partner, Semrush Enterprise Partner, Google Partner, ahrefs, Apollo"
