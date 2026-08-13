@@ -7,3 +7,11 @@ export function isLegalDocumentPath(pathname) {
   if (!pathname) return false;
   return LEGAL_DOCUMENT_PATHS.includes(pathname);
 }
+
+/** Paths that render their own full nav/footer chrome and skip the global marketing chrome. */
+export const SELF_CHROMED_PATHS = [SITE_PATHS.home];
+
+export function isSelfChromedPath(pathname) {
+  if (!pathname) return false;
+  return SELF_CHROMED_PATHS.includes(pathname);
+}

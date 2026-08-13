@@ -11,6 +11,7 @@
   --font-body: var(--font-nunito-sans);
   --font-ui: var(--font-nunito-sans);
   --font-mono: var(--font-nunito-sans);
+  --font-serif: var(--font-merriweather);
 
   --color-brand-50:  var(--brand-50);
   --color-brand-100: var(--brand-100);

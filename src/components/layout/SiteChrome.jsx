@@ -1,20 +1,21 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { isLegalDocumentPath } from "@/lib/legal-routes";
+import { isLegalDocumentPath, isSelfChromedPath } from "@/lib/legal-routes";
 import { PageAmbient } from "@/components/visual/PageAmbient";
 import { ScrollRevealInit } from "@/components/layout/ScrollRevealInit";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 
 /**
- * Marketing chrome (nav / main / footer). Legal document pages render their own shell
- * and skip this wrapper UI.
+ * Marketing chrome (nav / main / footer). Legal document pages and self-chromed pages
+ * (e.g. home, which renders its own nav/footer) skip this wrapper UI.
  */
 export function SiteChrome({ navbar, footer, children }) {
   const pathname = usePathname();
   const legal = isLegalDocumentPath(pathname);
+  const selfChromed = isSelfChromedPath(pathname);
 
-  if (legal) {
+  if (legal || selfChromed) {
     return <>{children}</>;
   }
 

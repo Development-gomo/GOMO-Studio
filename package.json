@@ -22,12 +22,14 @@
     "react-markdown": "^9.0.3",
     "remark-gfm": "^4.0.0",
     "resend": "^6.10.0",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "^15.2.9",
+    "playwright": "^1.62.1",
     "tailwindcss": "^4",
     "tsx": "^4.19.0"
   }

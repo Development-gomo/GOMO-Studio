@@ -1,7 +1,7 @@
 /**
  * Root layout: Nunito Sans typography site-wide, metadata, providers.
  */
-import { Nunito_Sans } from "next/font/google";
+import { Nunito_Sans, Merriweather } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
@@ -29,6 +29,15 @@ const nunitoSans = Nunito_Sans({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+});
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-merriweather",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata = {
@@ -93,7 +102,7 @@ export default async function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${defaultTheme === "light" ? "" : "dark"} ${nunitoSans.variable} ${nunitoSans.className} h-full font-sans`}
+      className={`${defaultTheme === "light" ? "" : "dark"} ${nunitoSans.variable} ${merriweather.variable} ${nunitoSans.className} h-full font-sans`}
       suppressHydrationWarning
     >
       <head>
