@@ -137,7 +137,7 @@ function ContactForm({ serviceOptions, submitLabel }) {
     "mt-2 w-full border-b border-white/25 bg-transparent pb-2 text-white placeholder:text-white/70 focus:border-[#00DEFF] focus:outline-none";
 
   return (
-    <form onSubmit={onSubmit} className="rounded-lg bg-white/[0.17] p-8 backdrop-blur-2xl sm:p-10">
+    <form onSubmit={onSubmit} className="rounded-lg bg-white/[0.17] p-8 backdrop-blur-[28px] sm:p-10">
       <div className="flex flex-col gap-8">
         <div>
           <select required value={values.service} onChange={set("service")} className={`${fieldClass} appearance-none`}>
@@ -249,7 +249,7 @@ export function MainFooter({ content }) {
           </motion.div>
         </div>
 
-        <motion.div variants={mcFadeUp} className="mt-16 rounded-2xl bg-white/[0.17] p-8 backdrop-blur-2xl sm:p-12">
+        <motion.div variants={mcFadeUp} className="mt-16 rounded-2xl bg-white/[0.17] p-8 backdrop-blur-[28px] sm:p-12">
           <div className="flex flex-col gap-10 border-b border-white/20 pb-10 lg:flex-row lg:justify-between">
             <div className="max-w-sm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
