@@ -3,7 +3,6 @@
 import { SITE_ROUTES } from "@/lib/site-links";
 import Link from "next/link";
 import { PRIVACY_POLICY_PATH, TERMS_OF_SERVICE_PATH } from "@/lib/legal-urls";
-import { BRAND } from "@/lib/brand";
 
 /**
  * CookiesContentPreset shape (all fields required unless merged with COOKIES_DEFAULT_PRESET):
@@ -62,7 +61,7 @@ export const COOKIES_DEFAULT_PRESET = {
   ],
   managingHeading: "Managing Your Cookie Preferences",
   managingIntro:
-    `You have control over how cookies are used. Most web browsers allow you to manage or disable cookies through their settings. Please note that disabling essential cookies may affect the functionality of ${BRAND.name}. To manage cookies in your browser:`,
+    "You have control over how cookies are used. Most web browsers allow you to manage or disable cookies through their settings. Please note that disabling essential cookies may affect the platform's functionality. To manage cookies in your browser:",
   browserInstructions: [
     { browser: "Chrome", steps: "Settings → Privacy and Security → Cookies and other site data" },
     { browser: "Firefox", steps: "Preferences → Privacy & Security → Cookies and Site Data" },
@@ -80,26 +79,34 @@ export function CookiesClient({ content }) {
   const c = { ...COOKIES_DEFAULT_PRESET, ...content };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0C0C12] pt-28 pb-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen overflow-hidden bg-black pb-20 pt-28">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(50% 40% at 90% 0%, rgba(38,141,229,0.18) 0%, transparent 65%), radial-gradient(45% 40% at 5% 30%, rgba(189,39,246,0.16) 0%, transparent 65%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-500/20 mb-4">
+          <span className="mb-4 inline-block rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[#5cffd3]">
             {c.kicker}
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">{c.pageTitle}</h1>
-          <p className="text-gray-400 dark:text-white/40 text-sm">{c.lastUpdated}</p>
+          <h1 className="mb-3 text-4xl font-bold leading-tight text-white sm:text-5xl">{c.pageTitle}</h1>
+          <p className="text-sm text-white/40">{c.lastUpdated}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
           <aside className="lg:col-span-1">
-            <div className="sticky top-28 rounded-2xl bg-[#f0f1f5] dark:bg-white/[0.04] border border-gray-100 dark:border-white/[0.07] p-5">
-              <p className="text-gray-400 dark:text-white/45 text-xs font-bold uppercase tracking-widest mb-4">Contents</p>
+            <div className="sticky top-28 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-white/45">Contents</p>
               <nav className="space-y-1">
                 {c.toc.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="block text-gray-500 dark:text-white/50 hover:text-brand-600 dark:hover:text-brand-300 text-sm transition-colors py-1 pl-2 border-l-2 border-transparent hover:border-brand-400"
+                    className="block border-l-2 border-transparent py-1 pl-2 text-sm text-white/55 transition-colors hover:border-[#5cffd3] hover:text-[#5cffd3]"
                   >
                     {s.title}
                   </a>
@@ -108,94 +115,82 @@ export function CookiesClient({ content }) {
             </div>
           </aside>
 
-          <article className="lg:col-span-3 space-y-10">
-            <p className="text-gray-600 dark:text-white/65 leading-relaxed">{c.intro}</p>
+          <article className="space-y-10 lg:col-span-3">
+            <p className="leading-relaxed text-white/65">{c.intro}</p>
 
             <div id="what-are-cookies" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{c.whatHeading}</h2>
-              <p className="text-gray-600 dark:text-white/65 leading-relaxed">{c.whatBody}</p>
-              <hr className="border-gray-100 dark:border-white/[0.06] mt-8" />
+              <h2 className="mb-3 text-xl font-bold text-white">{c.whatHeading}</h2>
+              <p className="leading-relaxed text-white/65">{c.whatBody}</p>
+              <hr className="mt-8 border-white/10" />
             </div>
 
             <div id="types" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-5">{c.typesSectionHeading}</h2>
+              <h2 className="mb-5 text-xl font-bold text-white">{c.typesSectionHeading}</h2>
               <div className="space-y-4">
                 {c.cookieTypes.map((type) => (
-                  <div
-                    key={type.name}
-                    className="rounded-xl border border-gray-100 dark:border-white/[0.07] bg-[#f0f1f5] dark:bg-white/[0.03] p-5"
-                  >
-                    <h3 className="text-gray-900 dark:text-white font-semibold mb-2">{type.name}</h3>
-                    <p className="text-gray-500 dark:text-white/60 text-sm leading-relaxed">{type.description}</p>
+                  <div key={type.name} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+                    <h3 className="mb-2 font-semibold text-white">{type.name}</h3>
+                    <p className="text-sm leading-relaxed text-white/60">{type.description}</p>
                   </div>
                 ))}
               </div>
-              <hr className="border-gray-100 dark:border-white/[0.06] mt-8" />
+              <hr className="mt-8 border-white/10" />
             </div>
 
             <div id="why-we-use" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{c.whyHeading}</h2>
-              <p className="text-gray-600 dark:text-white/65 mb-4">{c.whyIntro}</p>
+              <h2 className="mb-3 text-xl font-bold text-white">{c.whyHeading}</h2>
+              <p className="mb-4 text-white/65">{c.whyIntro}</p>
               <ul className="space-y-2">
                 {c.whyList.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-white/65 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-2 shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-sm text-white/65">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#5cffd3]" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <hr className="border-gray-100 dark:border-white/[0.06] mt-8" />
+              <hr className="mt-8 border-white/10" />
             </div>
 
             <div id="managing" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{c.managingHeading}</h2>
-              <p className="text-gray-600 dark:text-white/65 mb-5 leading-relaxed">{c.managingIntro}</p>
+              <h2 className="mb-3 text-xl font-bold text-white">{c.managingHeading}</h2>
+              <p className="mb-5 leading-relaxed text-white/65">{c.managingIntro}</p>
               <div className="space-y-3">
                 {c.browserInstructions.map((b) => (
                   <div key={b.browser} className="flex items-start gap-3 text-sm">
-                    <span className="text-brand-600 dark:text-brand-400 font-bold w-16 shrink-0">{b.browser}:</span>
-                    <span className="text-gray-500 dark:text-white/60">Go to {b.steps}</span>
+                    <span className="w-16 shrink-0 font-bold text-[#268de5]">{b.browser}:</span>
+                    <span className="text-white/60">Go to {b.steps}</span>
                   </div>
                 ))}
               </div>
-              <hr className="border-gray-100 dark:border-white/[0.06] mt-8" />
+              <hr className="mt-8 border-white/10" />
             </div>
 
             <div id="updates" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{c.updatesHeading}</h2>
-              <p className="text-gray-600 dark:text-white/65 leading-relaxed">{c.updatesBody}</p>
-              <hr className="border-gray-100 dark:border-white/[0.06] mt-8" />
+              <h2 className="mb-3 text-xl font-bold text-white">{c.updatesHeading}</h2>
+              <p className="leading-relaxed text-white/65">{c.updatesBody}</p>
+              <hr className="mt-8 border-white/10" />
             </div>
 
             <div id="contact" className="scroll-mt-28">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{c.contactHeading}</h2>
-              <p className="text-gray-600 dark:text-white/65 leading-relaxed">
+              <h2 className="mb-3 text-xl font-bold text-white">{c.contactHeading}</h2>
+              <p className="leading-relaxed text-white/65">
                 {c.contactLead}{" "}
-                <a
-                  href={`mailto:${c.contactEmail}`}
-                  className="text-brand-600 dark:text-brand-400 hover:text-brand-300 dark:hover:text-brand-300 transition-colors font-medium"
-                >
+                <a href={`mailto:${c.contactEmail}`} className="font-medium text-[#5cffd3] transition-colors hover:text-white">
                   {c.contactEmail}
                 </a>
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-400 dark:text-white/35 pt-4">
-              <Link
-                href={PRIVACY_POLICY_PATH}
-                className="hover:text-brand-600 dark:hover:text-brand-300 transition-colors"
-              >
+            <div className="flex flex-wrap gap-x-4 gap-y-1 pt-4 text-sm text-white/35">
+              <Link href={PRIVACY_POLICY_PATH} className="transition-colors hover:text-[#5cffd3]">
                 Privacy Policy
               </Link>
               <span>·</span>
-              <Link
-                href={TERMS_OF_SERVICE_PATH}
-                className="hover:text-brand-600 dark:hover:text-brand-300 transition-colors"
-              >
+              <Link href={TERMS_OF_SERVICE_PATH} className="transition-colors hover:text-[#5cffd3]">
                 Terms of Service
               </Link>
               <span>·</span>
-              <Link href={SITE_ROUTES.contact} className="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">
+              <Link href={SITE_ROUTES.contact} className="transition-colors hover:text-[#5cffd3]">
                 Contact Us
               </Link>
             </div>

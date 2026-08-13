@@ -76,7 +76,7 @@ function FooterColumnLink({ href, className, children }) {
 export function Footer({ config }) {
   const columns = config?.columns?.length ? config.columns : fallbackColumns;
   const legalLinks = config?.legalLinks?.length ? config.legalLinks : fallbackLegalLinks;
-  const copyrightText = config?.copyrightText || "© 2026 GOMO Studio. All rights reserved.";
+  const copyrightText = config?.copyrightText || "© 2026 GOMO Group. All rights reserved.";
 
   return (
     <div className="px-3 pb-3 pt-2 sm:px-4">
@@ -88,8 +88,8 @@ export function Footer({ config }) {
             <NewsletterSignup className="w-full max-w-none sm:max-w-[18rem] lg:shrink-0" />
 
             <div className="flex shrink-0 flex-col items-start gap-3 sm:gap-4 lg:items-end lg:pt-1">
-              <Link href="/" className="inline-flex leading-none" aria-label="GOMO Studio — Home">
-                <GomoLogo variant="full" className="scale-110 sm:scale-125 lg:scale-[1.35]" />
+              <Link href="/" className="inline-flex leading-none" aria-label="GOMO Group — Home">
+                <GomoLogo variant="full" className="h-7 scale-110 sm:h-8 sm:scale-125 lg:h-9 lg:scale-[1.35]" />
               </Link>
             </div>
           </div>
@@ -118,7 +118,7 @@ export function Footer({ config }) {
 
           <div className="flex flex-col items-center justify-between gap-5 border-t border-gray-200/80 py-6 dark:border-white/[0.08] sm:flex-row">
             <div className="flex max-w-full items-center gap-3 text-center sm:text-left">
-              <GomoLogo variant="mark" className="h-7 w-7" />
+              <GomoLogo variant="mark" className="h-6 w-6" />
               <span className="text-xs text-gray-400 dark:text-white/35">{copyrightText}</span>
             </div>
 

@@ -32,7 +32,7 @@ const fallbackNavigation = [
     children: [
       { label: "Integrations", href: SITE_ROUTES.integrations, description: "Connect with your favorite tools" },
       { label: "Blogs", href: SITE_ROUTES.blogs, description: "Guides on AI content, editing, and publishing" },
-      { label: "Careers", href: SITE_ROUTES.careers, description: "Join the GOMO Studio team" },
+      { label: "Careers", href: SITE_ROUTES.careers, description: "Join the GOMO Group team" },
     ],
   },
 ];
@@ -91,7 +91,7 @@ export function Navbar({ config, preview }) {
       >
         <nav className="px-4 sm:px-6">
           <div className="flex h-[3.25rem] items-center justify-between">
-            <Link href="/" className="flex shrink-0 items-center transition-transform duration-300 hover:scale-[1.02]" aria-label="GOMO Studio — Home">
+            <Link href="/" className="flex shrink-0 items-center transition-transform duration-300 hover:scale-[1.02]" aria-label="GOMO Group — Home">
               <GomoLogo variant="full" />
             </Link>
 

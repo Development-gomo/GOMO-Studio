@@ -22,7 +22,7 @@ export const DEFAULT_NAVBAR_CONFIG = {
       children: [
         { label: "Integrations", href: SITE_ROUTES.integrations, description: "Connect with your favorite tools" },
         { label: "Blog", href: SITE_ROUTES.blogs, description: "Guides on AI content and quick CMS workflows" },
-        { label: "Careers", href: SITE_ROUTES.careers, description: "Join the GOMO Studio team" },
+        { label: "Careers", href: SITE_ROUTES.careers, description: "Join the GOMO Group team" },
       ],
     },
   ],
@@ -77,5 +77,5 @@ export const DEFAULT_FOOTER_CONFIG = {
     { label: "Privacy", href: PRIVACY_POLICY_PATH },
     { label: "Cookies", href: SITE_ROUTES.cookies },
   ],
-  copyrightText: "© 2026 GOMO Studio. All rights reserved.",
+  copyrightText: "© 2026 GOMO Group. All rights reserved.",
 };

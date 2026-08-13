@@ -67,15 +67,13 @@ export default function PrivacyPolicyPage() {
           controller for a specific offering (for example, your employer under an
           enterprise agreement).
         </p>
-        <div
-          className="rounded-2xl border border-[#e8eaef] bg-[#edf7c8] px-5 py-4"
-        >
-          <p className="font-semibold text-[#17191C]">{entity}</p>
-          <p className="mt-2 whitespace-pre-line text-[0.9rem] text-[#1D2939]/85">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4">
+          <p className="font-semibold text-white">{entity}</p>
+          <p className="mt-2 whitespace-pre-line text-[0.9rem] text-white/70">
             {address}
           </p>
           <p className="mt-3 text-[0.9rem]">
-            <span className="text-[#1D2939]/70">Email: </span>
+            <span className="text-white/60">Email: </span>
             <LegalLink href={`mailto:${email}`}>{email}</LegalLink>
           </p>
         </div>

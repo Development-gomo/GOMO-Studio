@@ -244,7 +244,7 @@ export default function TermsOfServicePage() {
       </LegalSection>
 
       <LegalSection id="warranty" title="13. Disclaimers">
-        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-[#1D2939]/88">
+        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-white/80">
           TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED “AS
           IS” AND “AS AVAILABLE” WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED,
           OR STATUTORY, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
@@ -252,14 +252,14 @@ export default function TermsOfServicePage() {
           THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS, OR
           THAT INTEGRATIONS OR OUTPUTS WILL MEET YOUR REQUIREMENTS.
         </p>
-        <p className="text-[0.875rem] text-[#1D2939]/65">
+        <p className="text-[0.875rem] text-white/55">
           Some jurisdictions limit disclaimers; in those places, disclaimers apply to the
           fullest extent allowed.
         </p>
       </LegalSection>
 
       <LegalSection id="liability" title="14. Limitation of liability">
-        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-[#1D2939]/88">
+        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-white/80">
           TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL {entity}, ITS
           AFFILIATES, OR THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, OR SUPPLIERS BE
           LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR
@@ -267,13 +267,13 @@ export default function TermsOfServicePage() {
           OPPORTUNITIES, ARISING OUT OF OR RELATED TO THE SERVICE OR THESE TERMS, EVEN IF
           ADVISED OF THE POSSIBILITY.
         </p>
-        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-[#1D2939]/88">
+        <p className="font-[family-name:var(--font-body)] text-[0.9rem] leading-relaxed text-white/80">
           TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OUR AGGREGATE LIABILITY FOR
           ALL CLAIMS RELATING TO THE SERVICE OR THESE TERMS WILL NOT EXCEED THE GREATER OF
           (A) THE FEES YOU PAID US FOR THE SERVICE IN THE TWELVE (12) MONTHS BEFORE THE
           CLAIM AROSE, OR (B) ONE HUNDRED U.S. DOLLARS (USD $100) IF NO FEES APPLIED.
         </p>
-        <p className="text-[0.875rem] text-[#1D2939]/65">
+        <p className="text-[0.875rem] text-white/55">
           Nothing in these Terms excludes or limits liability that cannot be excluded or
           limited under applicable law (including death or personal injury caused by
           negligence, fraud, or willful misconduct where applicable).

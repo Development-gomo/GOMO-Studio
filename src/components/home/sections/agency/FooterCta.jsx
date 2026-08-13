@@ -223,7 +223,7 @@ export function FooterCta({ content }) {
             ))}
           </div>
 
-          <div className="mt-12 flex justify-end absolute right-[55px] bottom-[132px]">
+          <div className="mt-12 flex justify-end lg:absolute right-13.75 bottom-33">
             <Image
               src={content?.partnerBadgesUrl || "/assets/partner-badges.png"}
               alt="2025 & 2026 Microsoft Advertising Elite Partner, Semrush Enterprise Partner, Google Partner, ahrefs, Apollo"
