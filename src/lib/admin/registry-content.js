@@ -1,8 +1,9 @@
 import path from "path";
 import { writeFile, mkdir } from "fs/promises";
 import { CMS_REGISTRY, getRegistryEntryById } from "@/lib/cms/page-registry";
-import { readCmsJson, cmsFilePath } from "@/lib/cms/read-cms-file";
+import { readCmsJson, cmsFilePath, CMS_CONTENT_ROOT } from "@/lib/cms/read-cms-file";
 import { readDraftJson, writeDraftJson, discardDraft, hasDraft } from "@/lib/admin/drafts";
+import { isGitHubPublishConfigured, commitJsonFile } from "@/lib/admin/github-publish";
 
 /** Every registry entry plus whether it currently has an unpublished local draft. */
 export async function listRegistryWithStatus() {
@@ -59,9 +60,18 @@ export async function publishEntry(id) {
   const draft = await readDraftJson(id);
   if (draft === null) return false;
 
-  const filePath = cmsFilePath(entry.contentFile);
-  await mkdir(path.dirname(filePath), { recursive: true });
-  await writeFile(filePath, JSON.stringify(draft, null, 2), "utf8");
+  if (isGitHubPublishConfigured()) {
+    // Production path: commit straight to the repo so the write survives the read-only
+    // deployed filesystem, and the commit itself triggers the redeploy that serves it.
+    const repoPath = `${CMS_CONTENT_ROOT}/${entry.contentFile}`;
+    await commitJsonFile(repoPath, draft, `Publish: update ${entry.contentFile}`);
+  } else {
+    // Local dev fallback: no GITHUB_TOKEN configured, write straight to disk.
+    const filePath = cmsFilePath(entry.contentFile);
+    await mkdir(path.dirname(filePath), { recursive: true });
+    await writeFile(filePath, JSON.stringify(draft, null, 2), "utf8");
+  }
+
   await discardDraft(id);
   return true;
 }

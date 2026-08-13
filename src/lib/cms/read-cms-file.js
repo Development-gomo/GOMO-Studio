@@ -3,6 +3,9 @@ import path from "path";
 
 const CMS_ROOT = path.join(process.cwd(), "content", "cms");
 
+/** Repo-relative root for CMS content files (used to build GitHub Contents API paths). */
+export const CMS_CONTENT_ROOT = "content/cms";
+
 export function cmsFilePath(relativePath) {
   return path.join(CMS_ROOT, relativePath);
 }
