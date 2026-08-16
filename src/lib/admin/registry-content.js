@@ -1,7 +1,5 @@
-import path from "path";
-import { writeFile, mkdir } from "fs/promises";
 import { CMS_REGISTRY, getRegistryEntryById } from "@/lib/cms/page-registry";
-import { readCmsJson, cmsFilePath } from "@/lib/cms/read-cms-file";
+import { readCmsJson, writeCmsJson } from "@/lib/cms/read-cms-file";
 import { readDraftJson, writeDraftJson, discardDraft, hasDraft } from "@/lib/admin/drafts";
 
 /** Every registry entry plus whether it currently has an unpublished local draft. */
@@ -59,9 +57,7 @@ export async function publishEntry(id) {
   const draft = await readDraftJson(id);
   if (draft === null) return false;
 
-  const filePath = cmsFilePath(entry.contentFile);
-  await mkdir(path.dirname(filePath), { recursive: true });
-  await writeFile(filePath, JSON.stringify(draft, null, 2), "utf8");
+  await writeCmsJson(entry.contentFile, draft);
   await discardDraft(id);
   return true;
 }

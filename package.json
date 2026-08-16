@@ -13,6 +13,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.8.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.6.2",
     "lucide-react": "^0.479.0",

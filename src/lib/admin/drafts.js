@@ -1,38 +1,28 @@
 /**
- * Local-file draft storage for the GOMO Studio editor — one JSON file per registry entry id
- * under `.cms-drafts/`. Deliberately simple: no per-user scoping, no Redis. "Publish" writes
- * the draft straight into `content/cms/<contentFile>`; this module only owns the draft side.
+ * Draft storage for the GOMO Studio editor — one JSON entry per registry entry id, keyed
+ * under `.cms-drafts/`. Deliberately simple: no per-user scoping. "Publish" writes the draft
+ * straight into `content/cms/<contentFile>`; this module only owns the draft side.
+ *
+ * Backed by the local filesystem in dev, and by Vercel Blob in production (see
+ * src/lib/storage/json-store.js) — Vercel's serverless functions can't write to disk.
  */
-import { readFile, writeFile, unlink, mkdir } from "fs/promises";
-import path from "path";
+import { readJsonEntry, writeJsonEntry, deleteJsonEntry } from "@/lib/storage/json-store";
 
-const DRAFTS_ROOT = path.join(process.cwd(), ".cms-drafts");
-
-function draftFilePath(id) {
-  return path.join(DRAFTS_ROOT, `${id}.json`);
+function draftKey(id) {
+  return `.cms-drafts/${id}.json`;
 }
 
 export async function readDraftJson(id) {
-  try {
-    const raw = await readFile(draftFilePath(id), "utf8");
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+  return readJsonEntry(draftKey(id));
 }
 
 export async function writeDraftJson(id, data) {
-  await mkdir(DRAFTS_ROOT, { recursive: true });
-  await writeFile(draftFilePath(id), JSON.stringify(data, null, 2), "utf8");
+  await writeJsonEntry(draftKey(id), data);
 }
 
 export async function discardDraft(id) {
-  try {
-    await unlink(draftFilePath(id));
-    return true;
-  } catch {
-    return false;
-  }
+  await deleteJsonEntry(draftKey(id));
+  return true;
 }
 
 export async function hasDraft(id) {

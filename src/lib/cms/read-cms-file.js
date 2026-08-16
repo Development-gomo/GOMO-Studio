@@ -1,17 +1,16 @@
-import { readFile } from "fs/promises";
 import path from "path";
+import { readJsonEntry, writeJsonEntry } from "@/lib/storage/json-store";
 
-const CMS_ROOT = path.join(process.cwd(), "content", "cms");
+const CMS_ROOT = path.posix.join("content", "cms");
 
 export function cmsFilePath(relativePath) {
-  return path.join(CMS_ROOT, relativePath);
+  return path.posix.join(CMS_ROOT, relativePath);
 }
 
 export async function readCmsJson(relativePath) {
-  try {
-    const raw = await readFile(cmsFilePath(relativePath), "utf8");
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+  return readJsonEntry(cmsFilePath(relativePath));
+}
+
+export async function writeCmsJson(relativePath, data) {
+  await writeJsonEntry(cmsFilePath(relativePath), data);
 }
