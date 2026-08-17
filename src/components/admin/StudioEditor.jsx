@@ -74,6 +74,14 @@ export function StudioEditor({ id }) {
     };
   }, [id]);
 
+  useEffect(() => {
+    return () => {
+      if (previewOpen) {
+        fetch("/api/admin/preview/disable", { method: "POST", keepalive: true });
+      }
+    };
+  }, [previewOpen]);
+
   if (loading) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
