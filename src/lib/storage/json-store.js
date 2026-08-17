@@ -3,14 +3,18 @@
  * or ".cms-drafts/home.json").
  *
  * Local dev: reads/writes the repo filesystem directly, same as before.
- * Vercel (or anywhere BLOB_READ_WRITE_TOKEN is set): the project's serverless functions run on a
+ * Vercel (or anywhere Blob credentials are set): the project's serverless functions run on a
  * read-only filesystem, so this backs onto Vercel Blob instead — same key, addRandomSuffix disabled
  * and allowOverwrite enabled so "the file at this path" stays a stable, overwritable identity.
+ *
+ * Blob auth comes either from a classic BLOB_READ_WRITE_TOKEN, or (current default when you connect
+ * a store from the dashboard) BLOB_STORE_ID + the platform's auto-injected OIDC token — the
+ * @vercel/blob SDK resolves that itself, we just need to know which mode to use.
  */
 import { readFile, writeFile, unlink, mkdir } from "fs/promises";
 import path from "path";
 
-const USE_BLOB = Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+const USE_BLOB = Boolean(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 
 function localPath(key) {
   return path.join(process.cwd(), key);
