@@ -1,14 +1,64 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Eye, RefreshCw, Save, Trash2, UploadCloud } from "lucide-react";
+import { ArrowLeft, Monitor, RefreshCw, Save, Smartphone, Tablet, Trash2, UploadCloud } from "lucide-react";
 import { GenericContentForm } from "@/components/admin/GenericContentForm";
 import { SeoFieldsForm } from "@/components/admin/SeoFieldsForm";
 import { AiPanel } from "@/components/admin/AiPanel";
 import { SectionsPanel } from "@/components/admin/SectionsPanel";
 import { ThemeSettingsForm } from "@/components/admin/ThemeSettingsForm";
 import { deepMerge } from "@/lib/cms/deep-merge";
+
+const PREVIEW_HEIGHT = 640;
+
+const DEVICE_PRESETS = {
+  desktop: { label: "Desktop", width: 1440, Icon: Monitor },
+  tablet: { label: "Tablet", width: 834, Icon: Tablet },
+  mobile: { label: "Mobile", width: 390, Icon: Smartphone },
+};
+
+/** Renders the preview iframe at a fixed device width, scaled to fit the available panel width. */
+function DevicePreviewFrame({ src, device }) {
+  const containerRef = useRef(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      setContainerWidth(entries[0].contentRect.width);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const { width: deviceWidth } = DEVICE_PRESETS[device];
+  const scale = containerWidth > 0 ? Math.min(1, containerWidth / deviceWidth) : 1;
+  const marginLeft = Math.max(0, (containerWidth - deviceWidth * scale) / 2);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden rounded-b-2xl border border-white/10 bg-white"
+      style={{ height: PREVIEW_HEIGHT }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: marginLeft,
+          width: deviceWidth,
+          height: PREVIEW_HEIGHT / scale,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
+        }}
+      >
+        <iframe src={src} title="Live preview" className="h-full w-full" style={{ width: deviceWidth }} />
+      </div>
+    </div>
+  );
+}
 
 function splitContent(entry, data) {
   if (entry.type === "robots") {
@@ -44,8 +94,14 @@ export function StudioEditor({ id }) {
   const [hasDraft, setHasDraft] = useState(false);
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
-  const [previewOpen, setPreviewOpen] = useState(false);
   const [previewNonce, setPreviewNonce] = useState(0);
+  const [previewDevice, setPreviewDevice] = useState("desktop");
+
+  useEffect(() => {
+    if (status !== "success" || !message) return;
+    const timer = setTimeout(() => setMessage(""), 4000);
+    return () => clearTimeout(timer);
+  }, [status, message]);
 
   useEffect(() => {
     let cancelled = false;
@@ -121,6 +177,7 @@ export function StudioEditor({ id }) {
       return false;
     }
     setHasDraft(true);
+    setPreviewNonce((n) => n + 1);
     if (!silent) {
       setStatus("success");
       setMessage("Draft saved.");
@@ -137,14 +194,7 @@ export function StudioEditor({ id }) {
     setHasDraft(false);
     setStatus("success");
     setMessage("Draft discarded.");
-  }
-
-  async function refreshPreview() {
-    const ok = await saveDraft(true);
-    if (ok) {
-      setPreviewOpen(true);
-      setPreviewNonce((n) => n + 1);
-    }
+    setPreviewNonce((n) => n + 1);
   }
 
   async function publish() {
@@ -161,7 +211,7 @@ export function StudioEditor({ id }) {
     setHasDraft(false);
     setStatus("success");
     setMessage("Published — your changes are live.");
-    if (previewOpen) setPreviewNonce((n) => n + 1);
+    setPreviewNonce((n) => n + 1);
   }
 
   return (
@@ -206,14 +256,6 @@ export function StudioEditor({ id }) {
           </button>
           <button
             type="button"
-            onClick={refreshPreview}
-            className="flex items-center gap-1.5 rounded-lg border border-white/15 px-3 py-2 text-xs font-medium text-white/80 hover:text-white"
-          >
-            {previewOpen ? <RefreshCw className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
-            {previewOpen ? "Refresh preview" : "Preview"}
-          </button>
-          <button
-            type="button"
             onClick={publish}
             className="flex items-center gap-1.5 rounded-lg bg-[#c9ff33] px-3 py-2 text-xs font-semibold text-[#0f0f0f] active:scale-[0.98]"
           >
@@ -234,7 +276,7 @@ export function StudioEditor({ id }) {
         </p>
       ) : null}
 
-      <div className={`grid gap-6 ${previewOpen ? "lg:grid-cols-2" : ""}`}>
+      <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           {entry.type !== "settings" ? (
             <AiPanel
@@ -280,26 +322,44 @@ export function StudioEditor({ id }) {
           ) : null}
         </div>
 
-        {previewOpen ? (
-          <div className="lg:sticky lg:top-6 lg:self-start">
-            <div className="flex items-center justify-between rounded-t-2xl border border-b-0 border-white/10 bg-white/[0.03] px-4 py-2">
-              <p className="text-xs font-medium text-white/50">Live preview (draft)</p>
+        <div className="lg:sticky lg:top-6 lg:self-start">
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-t-2xl border border-b-0 border-white/10 bg-white/[0.03] px-4 py-2">
+            <p className="text-xs font-medium text-white/50">Live preview (draft)</p>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 rounded-lg border border-white/10 p-0.5">
+                {Object.entries(DEVICE_PRESETS).map(([key, preset]) => {
+                  const Icon = preset.Icon;
+                  const active = previewDevice === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      title={preset.label}
+                      onClick={() => setPreviewDevice(key)}
+                      className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors ${
+                        active ? "bg-[#c9ff33] text-[#0f0f0f]" : "text-white/50 hover:text-white"
+                      }`}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
+                    </button>
+                  );
+                })}
+              </div>
               <button
                 type="button"
-                onClick={refreshPreview}
+                onClick={() => setPreviewNonce((n) => n + 1)}
                 className="flex items-center gap-1 text-xs font-medium text-white/50 hover:text-white"
               >
                 <RefreshCw className="h-3 w-3" /> Refresh
               </button>
             </div>
-            <iframe
-              key={previewNonce}
-              src={`/api/admin/preview/${id}?t=${previewNonce}`}
-              title="Live preview"
-              className="h-[70vh] w-full rounded-b-2xl border border-white/10 bg-white"
-            />
           </div>
-        ) : null}
+          <DevicePreviewFrame
+            key={previewNonce}
+            src={`/api/admin/preview/${id}?t=${previewNonce}`}
+            device={previewDevice}
+          />
+        </div>
       </div>
     </div>
   );
