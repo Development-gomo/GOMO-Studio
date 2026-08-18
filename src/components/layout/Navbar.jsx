@@ -10,7 +10,6 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { cn, isExternalNavigationHref } from "@/lib/utils";
 import { CAPABILITY_LIST } from "@/lib/capabilities";
 import { SITE_ROUTES, MARKETING_CTAS } from "@/lib/site-links";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { GomoLogo } from "@/components/layout/GomoLogo";
 
 const fallbackNavigation = [
@@ -157,7 +156,6 @@ export function Navbar({ config, preview }) {
             </div>
 
             <div className="hidden shrink-0 items-center gap-2 lg:flex">
-              <ThemeToggle />
               {loginIsExternal ? (
                 <a
                   href={loginHref}
@@ -198,7 +196,6 @@ export function Navbar({ config, preview }) {
             </div>
 
             <div className="flex items-center gap-1 lg:hidden">
-              <ThemeToggle />
               <button
                 type="button"
                 className="touch-target flex items-center justify-center rounded-lg p-2 text-gray-600 transition-colors hover:bg-black/5 hover:text-gray-900 dark:text-white/70 dark:hover:bg-white/5 dark:hover:text-white"

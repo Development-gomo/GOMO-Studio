@@ -7,7 +7,6 @@ import { GenericContentForm } from "@/components/admin/GenericContentForm";
 import { SeoFieldsForm } from "@/components/admin/SeoFieldsForm";
 import { AiPanel } from "@/components/admin/AiPanel";
 import { SectionsPanel } from "@/components/admin/SectionsPanel";
-import { ThemeSettingsForm } from "@/components/admin/ThemeSettingsForm";
 import { deepMerge } from "@/lib/cms/deep-merge";
 
 const PREVIEW_HEIGHT = 640;
@@ -63,9 +62,6 @@ function DevicePreviewFrame({ src, device }) {
 function splitContent(entry, data) {
   if (entry.type === "robots") {
     return { seoPart: null, bodyPart: data ?? { body: "" }, layoutPart: null };
-  }
-  if (entry.type === "settings") {
-    return { seoPart: null, bodyPart: data ?? {}, layoutPart: null };
   }
   if (entry.type === "page") {
     return {
@@ -296,13 +292,7 @@ export function StudioEditor({ id }) {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="space-y-6">
-          {entry.type !== "settings" ? (
-            <AiPanel
-              currentContent={bodyPart}
-              pageLabel={entry.label}
-              onApply={applyAiSuggestion}
-            />
-          ) : null}
+          <AiPanel currentContent={bodyPart} pageLabel={entry.label} onApply={applyAiSuggestion} />
 
           {entry.sections ? (
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
@@ -319,11 +309,6 @@ export function StudioEditor({ id }) {
                 onChange={(e) => updateBody({ ...bodyPart, body: e.target.value })}
                 className="w-full rounded-lg border border-white/10 bg-black/30 p-3 font-mono text-xs text-white/90 outline-none focus:border-[#c9ff33]/50"
               />
-            </div>
-          ) : entry.type === "settings" ? (
-            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
-              <p className="mb-4 text-sm font-semibold text-white">Default theme</p>
-              <ThemeSettingsForm value={bodyPart} onChange={updateBody} />
             </div>
           ) : (
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">

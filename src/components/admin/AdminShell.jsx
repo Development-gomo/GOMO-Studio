@@ -9,7 +9,6 @@ import {
   LogOut,
   PanelTop,
   PanelBottom,
-  Palette,
 } from "lucide-react";
 
 const NAV_ITEMS = [{ href: "/admin", label: "Dashboard", icon: LayoutDashboard }];
@@ -17,7 +16,6 @@ const NAV_ITEMS = [{ href: "/admin", label: "Dashboard", icon: LayoutDashboard }
 const QUICK_LINKS = [
   { href: "/admin/studio/chrome-header", label: "Header", icon: PanelTop },
   { href: "/admin/studio/chrome-footer", label: "Footer", icon: PanelBottom },
-  { href: "/admin/studio/theme", label: "Theme", icon: Palette },
 ];
 
 function NavLink({ href, label, icon: Icon, active }) {

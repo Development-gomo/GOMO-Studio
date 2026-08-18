@@ -3,12 +3,9 @@
  */
 import { Nunito_Sans, Merriweather } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { SiteStructuredData } from "@/components/seo/SiteStructuredData";
 import { MotionConfigProvider } from "@/components/layout/MotionConfigProvider";
 import { SITE_ORIGIN, allowSearchIndexing } from "@/lib/seo-config";
-import { buildThemeInitScript } from "@/lib/theme";
-import { getDefaultThemeSetting } from "@/lib/cms/theme-settings";
 
 const seoIndexable = allowSearchIndexing();
 
@@ -16,10 +13,7 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f6f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
-  ],
+  themeColor: "#0f0f0f",
 };
 
 const nunitoSans = Nunito_Sans({
@@ -97,25 +91,12 @@ export const metadata = {
       },
 };
 
-export default async function RootLayout({ children }) {
-  const defaultTheme = await getDefaultThemeSetting();
+export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${defaultTheme === "light" ? "" : "dark"} ${nunitoSans.variable} ${merriweather.variable} ${nunitoSans.className} h-full font-sans`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: buildThemeInitScript(defaultTheme) }} />
-      </head>
-      <body
-        className="min-h-full flex flex-col overflow-x-clip bg-[var(--bg)] font-sans text-[var(--fg)] antialiased"
-        suppressHydrationWarning
-      >
+    <html lang="en" className={`dark ${nunitoSans.variable} ${merriweather.variable} ${nunitoSans.className} h-full font-sans`}>
+      <body className="min-h-full flex flex-col overflow-x-clip bg-[var(--bg)] font-sans text-[var(--fg)] antialiased">
         <SiteStructuredData />
-        <ThemeProvider defaultTheme={defaultTheme}>
-          <MotionConfigProvider>{children}</MotionConfigProvider>
-        </ThemeProvider>
+        <MotionConfigProvider>{children}</MotionConfigProvider>
       </body>
     </html>
   );

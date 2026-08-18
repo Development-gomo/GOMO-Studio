@@ -10,7 +10,6 @@ const TYPE_LABELS = {
   blog: "Blog post",
   chrome: "Site chrome",
   robots: "Robots.txt",
-  settings: "Site setting",
 };
 
 const FILTERS = [
