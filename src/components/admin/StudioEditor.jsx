@@ -128,11 +128,9 @@ export function StudioEditor({ id }) {
 
   useEffect(() => {
     return () => {
-      if (previewOpen) {
-        fetch("/api/admin/preview/disable", { method: "POST", keepalive: true });
-      }
+      fetch("/api/admin/preview/disable", { method: "POST", keepalive: true });
     };
-  }, [previewOpen]);
+  }, []);
 
   if (loading) {
     return (
