@@ -2,9 +2,9 @@ export const THEME_STORAGE_KEY = "gomo-studio-theme";
 
 export const DEFAULT_THEME = "dark";
 
-export function resolveTheme(stored) {
+export function resolveTheme(stored, fallback = DEFAULT_THEME) {
   if (stored === "light" || stored === "dark") return stored;
-  return DEFAULT_THEME;
+  return fallback === "light" ? "light" : "dark";
 }
 
 export function getStoredTheme() {

@@ -113,7 +113,7 @@ export default async function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <SiteStructuredData />
-        <ThemeProvider>
+        <ThemeProvider defaultTheme={defaultTheme}>
           <MotionConfigProvider>{children}</MotionConfigProvider>
         </ThemeProvider>
       </body>

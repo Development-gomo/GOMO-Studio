@@ -6,17 +6,16 @@ import { applyTheme, DEFAULT_THEME, getStoredTheme, resolveTheme, THEME_STORAGE_
 /** ThemeContextValue: { theme: "light"|"dark", setTheme, toggleTheme, isDark } */
 const ThemeContext = createContext(null);
 
-function readTheme() {
-  return resolveTheme(getStoredTheme());
-}
-
-export function ThemeProvider({ children }) {
-  const [theme, setThemeState] = useState(DEFAULT_THEME);
+export function ThemeProvider({ children, defaultTheme = DEFAULT_THEME }) {
+  const [theme, setThemeState] = useState(defaultTheme);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setThemeState(readTheme());
+    setThemeState(resolveTheme(getStoredTheme(), defaultTheme));
     setReady(true);
+    // Only the mount's initial defaultTheme should seed state; later prop changes shouldn't
+    // fight a visitor's own toggle choice.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
