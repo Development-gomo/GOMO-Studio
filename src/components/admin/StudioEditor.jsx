@@ -165,10 +165,20 @@ export function StudioEditor({ id }) {
 
   async function saveDraft(silent = false) {
     if (!silent) setStatus("saving");
+    const ok = await persistDraft(data);
+    if (!ok) return false;
+    if (!silent) {
+      setStatus("success");
+      setMessage("Draft saved.");
+    }
+    return true;
+  }
+
+  async function persistDraft(nextData) {
     const res = await fetch(`/api/admin/content/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({ data: nextData }),
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
@@ -178,11 +188,19 @@ export function StudioEditor({ id }) {
     }
     setHasDraft(true);
     setPreviewNonce((n) => n + 1);
-    if (!silent) {
-      setStatus("success");
-      setMessage("Draft saved.");
-    }
     return true;
+  }
+
+  async function applyAiSuggestion(suggestion) {
+    const nextData = mergeContent(entry, data, { seoPart, bodyPart: deepMerge(bodyPart, suggestion), layoutPart });
+    setData(nextData);
+    // "Apply to draft" should actually land in the draft immediately, not just local form
+    // state — save() reads `data` from the closure, which react hasn't updated yet here.
+    const ok = await persistDraft(nextData);
+    if (ok) {
+      setStatus("success");
+      setMessage("Applied to draft.");
+    }
   }
 
   async function discardDraft() {
@@ -282,7 +300,7 @@ export function StudioEditor({ id }) {
             <AiPanel
               currentContent={bodyPart}
               pageLabel={entry.label}
-              onApply={(suggestion) => updateBody(deepMerge(bodyPart, suggestion))}
+              onApply={applyAiSuggestion}
             />
           ) : null}
 
