@@ -10,7 +10,6 @@ import { HOME_SECTION_DEFS } from "@/lib/cms/home-section-order";
 const PAGE_ENTRIES = [
   { id: "chrome-header", label: "Header", type: "chrome", path: "__chrome:header", contentFile: "site/header.json", creatable: false, hasSeo: false },
   { id: "chrome-footer", label: "Footer", type: "chrome", path: "__chrome:footer", contentFile: "site/footer.json", creatable: false, hasSeo: false },
-  { id: "theme", label: "Theme", type: "settings", path: "__settings:theme", contentFile: "site/theme.json", creatable: false, hasSeo: false },
   { id: "home", label: "Home", type: "page", path: "/", contentFile: "pages/home.json", creatable: false, hasSeo: true, sections: HOME_SECTION_DEFS },
   { id: "features", label: "Features", type: "page", path: SITE_PATHS.platform.features, contentFile: "pages/features.json", creatable: false, hasSeo: true },
   { id: "pricing", label: "Pricing", type: "page", path: SITE_PATHS.platform.pricing, contentFile: "pages/pricing.json", creatable: false, hasSeo: true },
