@@ -10,7 +10,6 @@ const DEFAULT_SERVICES = [
     id: "geo",
     name: "Generative Engine Optimization (GEO)",
     description: "Search now extends beyond Google to platforms like ChatGPT, Copilot and Claude. GEO helps your brand stay visible across this new search landscape.",
-    alwaysShowDescription: true,
     gradient: "linear-gradient(160deg, rgb(20,10,30) 0%, rgb(80,20,90) 55%, rgb(189,39,246) 100%)",
     illustration: "/design/home/services/illus-geo.png",
   },
@@ -18,7 +17,7 @@ const DEFAULT_SERVICES = [
     id: "pull-marketing",
     name: "Pull Marketing",
     // PLACEHOLDER — the copy sent for this card was a duplicate of the SEO card's; swap once the real text arrives.
-    description: "[Placeholder — awaiting real copy] A pull marketing engine built on content, SEO and community that draws qualified buyers to you over time.",
+    description: "A pull marketing engine built on content, SEO and community that draws qualified buyers to you over time.",
     gradient: "linear-gradient(160deg, rgb(10,25,25) 0%, rgb(20,80,90) 45%, rgb(120,40,180) 100%)",
     illustration: "/design/home/services/illus-pull-marketing.png",
   },
@@ -76,20 +75,16 @@ function ServiceCard({ service }) {
       className="group relative flex h-[443px] shrink-0 flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#8e38f8] p-8 shadow-[inset_3px_1px_31px_-6px_#bd27f6] transition-[box-shadow,border-color] duration-300 hover:border-[#a78bfa] hover:shadow-[inset_3px_1px_31px_-6px_#bd27f6,0_12px_50px_-10px_rgba(142,56,248,0.7),0_0_35px_-6px_rgba(59,130,246,0.6)]"
       style={{ width: CARD_WIDTH, background: service.gradient }}
     >
-      <div className="pointer-events-none absolute bottom-5 right-5 z-0 h-[170px] w-[230px] opacity-90">
-        <Image src={service.illustration} alt="" fill className="object-contain" sizes="230px" />
+      <div className="pointer-events-none absolute bottom-5 right-5 z-0 h-[250px] w-[300px] opacity-90">
+        <Image src={service.illustration} alt="" fill className="object-contain" sizes="300px" />
       </div>
       <p className="relative z-10 whitespace-pre-line font-serif text-2xl font-bold italic leading-tight text-white">{service.name}</p>
       {service.description ? (
-        service.alwaysShowDescription ? (
-          <p className="relative z-10 max-w-[300px] text-[15px] leading-relaxed text-white/85">{service.description}</p>
-        ) : (
-          <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr]">
-            <p className="relative z-10 max-w-[300px] overflow-hidden text-[15px] leading-relaxed text-white/85">
-              {service.description}
-            </p>
-          </div>
-        )
+        <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr]">
+          <p className="relative z-10 max-w-[300px] overflow-hidden text-[15px] leading-relaxed text-white/85">
+            {service.description}
+          </p>
+        </div>
       ) : null}
       <SolidPillButton href={service.href || "/company/about-us"} className="relative z-10 w-fit gap-1.5 px-6 py-3 text-sm">
         Learn more <ArrowRight className="h-3.5 w-3.5" aria-hidden />
