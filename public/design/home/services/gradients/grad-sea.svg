@@ -23,7 +23,7 @@
 </g>
 </g>
 <defs>
-<filter id="filter0_n_0_174" x="0" y="227.352" width="420" height="215.648" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_n_0_174" x="0" y="0" width="420" height="443" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feTurbulence type="fractalNoise" baseFrequency="inf inf" stitchTiles="stitch" numOctaves="3" result="noise" seed="5309" />
