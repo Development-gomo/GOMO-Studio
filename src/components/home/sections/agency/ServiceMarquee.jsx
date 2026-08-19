@@ -73,7 +73,7 @@ const CARD_GAP = 24;
 function ServiceCard({ service }) {
   return (
     <div
-      className="group relative flex h-[443px] shrink-0 flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#8e38f8] p-8 shadow-[inset_3px_1px_31px_-6px_#bd27f6]"
+      className="group relative flex h-[443px] shrink-0 flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#8e38f8] p-8 shadow-[inset_3px_1px_31px_-6px_#bd27f6] transition-[box-shadow,border-color] duration-300 hover:border-[#a78bfa] hover:shadow-[inset_3px_1px_31px_-6px_#bd27f6,0_12px_50px_-10px_rgba(142,56,248,0.7),0_0_35px_-6px_rgba(59,130,246,0.6)]"
       style={{ width: CARD_WIDTH, background: service.gradient }}
     >
       <div className="pointer-events-none absolute bottom-5 right-5 z-0 h-[170px] w-[230px] opacity-90">
