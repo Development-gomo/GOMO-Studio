@@ -22,6 +22,14 @@ const DEFAULT_SERVICES = [
     illustration: "/design/home/services/illus-pull-marketing.png",
   },
   {
+    id: "sea",
+    name: "SEA Advertising",
+    description: "Meet your target audience on the search engine as they are looking to buy. Get effective results and increase your company's visibility using SEA.",
+    gradientImage: "/design/home/services/gradients/grad-sea.svg",
+    illustration: "/design/home/services/illus-sea.png",
+  },
+
+  {
     id: "seo",
     name: "SEO (Search Engine Optimization)",
     description: "Maximize your online presence with a comprehensive SEO strategy: drive relevant traffic to your website and build a strong online presence over time.",
@@ -29,13 +37,7 @@ const DEFAULT_SERVICES = [
     gradientImage: "/design/home/services/gradients/grad-pull-marketing.svg",
     illustration: "/design/home/services/illus-geo.png",
   },
-  {
-    id: "sea",
-    name: "SEA Advertising",
-    description: "Meet your target audience on the search engine as they are looking to buy. Get effective results and increase your company's visibility using SEA.",
-    gradientImage: "/design/home/services/gradients/grad-sea.svg",
-    illustration: "/design/home/services/illus-sea.png",
-  },
+  
   {
     id: "digital-analysis",
     name: "Digital Analysis &\nStrategy Proposal",

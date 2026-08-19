@@ -32,7 +32,7 @@ const FOOTER_COLUMNS = [
     { label: "FKAB (B2B SME)", href: SITE_ROUTES.blogs },
     { label: "Industrial Manufacturing (Enterprise)", href: SITE_ROUTES.blogs },
     { label: "Atlas Copco", href: SITE_ROUTES.blogs },
-    { label: "All Cases →", href: SITE_ROUTES.blogs },
+    { label: "All Cases", href: SITE_ROUTES.blogs },
   ] },
   { heading: "Solutions", links: [
     { label: "B2B Enterprise", href: SITE_ROUTES.about },
