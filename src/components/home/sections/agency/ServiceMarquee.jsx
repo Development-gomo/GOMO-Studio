@@ -10,7 +10,7 @@ const DEFAULT_SERVICES = [
     id: "geo",
     name: "Generative Engine Optimization (GEO)",
     description: "Search now extends beyond Google to platforms like ChatGPT, Copilot and Claude. GEO helps your brand stay visible across this new search landscape.",
-    gradient: "linear-gradient(160deg, rgb(20,10,30) 0%, rgb(80,20,90) 55%, rgb(189,39,246) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-geo.svg",
     illustration: "/design/home/services/illus-geo.png",
   },
   {
@@ -18,65 +18,67 @@ const DEFAULT_SERVICES = [
     name: "Pull Marketing",
     // PLACEHOLDER — the copy sent for this card was a duplicate of the SEO card's; swap once the real text arrives.
     description: "A pull marketing engine built on content, SEO and community that draws qualified buyers to you over time.",
-    gradient: "linear-gradient(160deg, rgb(10,25,25) 0%, rgb(20,80,90) 45%, rgb(120,40,180) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-pull-marketing.svg",
     illustration: "/design/home/services/illus-pull-marketing.png",
   },
   {
     id: "seo",
     name: "SEO (Search Engine Optimization)",
     description: "Maximize your online presence with a comprehensive SEO strategy: drive relevant traffic to your website and build a strong online presence over time.",
-    gradient: "linear-gradient(160deg, rgb(10,20,35) 0%, rgb(20,60,140) 45%, rgb(150,30,190) 100%)",
-    // No dedicated illustration asset yet — reusing GEO's as a placeholder until one exists.
+    // No dedicated card in the Figma source — reusing Pull Marketing's gradient as a placeholder.
+    gradientImage: "/design/home/services/gradients/grad-pull-marketing.svg",
     illustration: "/design/home/services/illus-geo.png",
   },
   {
     id: "sea",
     name: "SEA Advertising",
     description: "Meet your target audience on the search engine as they are looking to buy. Get effective results and increase your company's visibility using SEA.",
-    gradient: "linear-gradient(160deg, rgb(15,10,30) 0%, rgb(150,30,150) 45%, rgb(60,20,120) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-sea.svg",
     illustration: "/design/home/services/illus-sea.png",
   },
   {
     id: "digital-analysis",
     name: "Digital Analysis &\nStrategy Proposal",
     description: "Get a complete picture of your digital presence and optimize your strategy with our digital analysis. Complete insight into your current situation and the competitive landscape.",
-    gradient: "linear-gradient(160deg, rgb(10,10,35) 0%, rgb(30,30,150) 55%, rgb(90,30,170) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-digital-analysis.svg",
     illustration: "/design/home/services/illus-digital-analysis.png",
   },
   {
     id: "web-development",
     name: "Website Development",
     description: "We create functional, user-friendly websites optimized for performance and conversions. With modern technology and custom solutions, we ensure your website meets your business needs and goals.",
-    gradient: "linear-gradient(160deg, rgb(10,10,35) 0%, rgb(40,20,150) 55%, rgb(150,30,170) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-web-development.svg",
     illustration: "/design/home/services/illus-web-development.png",
   },
   {
     id: "web-design",
     name: "Website Design",
     description: "We design visually appealing websites that reflect your brand. Through user-centered design, we create an experience that engages visitors and strengthens your business.",
-    gradient: "linear-gradient(160deg, rgb(15,10,35) 0%, rgb(70,20,140) 55%, rgb(130,30,190) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-web-design.svg",
     illustration: "/design/home/services/illus-web-design.png",
   },
   {
     id: "lead-gen",
     name: "ASBX – B2B Outbound Lead Generation",
     description: "Enhance your B2B marketing with our segmented lead generation. Reach decision-makers with relevant messages and generate business opportunities.",
-    gradient: "linear-gradient(160deg, rgb(20,10,30) 0%, rgb(120,20,110) 55%, rgb(190,30,140) 100%)",
+    gradientImage: "/design/home/services/gradients/grad-lead-gen.svg",
     illustration: "/design/home/services/illus-lead-gen.png",
   },
 ];
 
-const CARD_WIDTH = 405;
+const CARD_WIDTH = 420;
 const CARD_GAP = 24;
 
 function ServiceCard({ service }) {
   return (
     <div
-      className="group relative flex h-[443px] shrink-0 flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#8e38f8] p-8 shadow-[inset_3px_1px_31px_-6px_#bd27f6] transition-[box-shadow,border-color] duration-300 hover:border-[#a78bfa] hover:shadow-[inset_3px_1px_31px_-6px_#bd27f6,0_12px_50px_-10px_rgba(142,56,248,0.7),0_0_35px_-6px_rgba(59,130,246,0.6)]"
-      style={{ width: CARD_WIDTH, background: service.gradient }}
+      className="group relative flex h-[443px] shrink-0 flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#8e38f8] bg-black p-8 shadow-[inset_3px_1px_31px_-6px_#bd27f6] transition-[box-shadow,border-color] duration-300 hover:border-[#a78bfa] hover:shadow-[inset_3px_1px_31px_-6px_#bd27f6,0_12px_50px_-10px_rgba(142,56,248,0.7),0_0_35px_-6px_rgba(59,130,246,0.6)]"
+      style={{ width: CARD_WIDTH }}
     >
-      <div className="pointer-events-none absolute bottom-5 right-5 z-0 h-[250px] w-[300px] opacity-90 transition-transform duration-300 ease-out group-hover:scale-110">
-        <Image src={service.illustration} alt="" fill className="object-contain" sizes="300px" />
+      {/* eslint-disable-next-line @next/next/no-img-element -- SVG background, not worth Next's image optimizer */}
+      <img src={service.gradientImage} alt="" className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover" />
+      <div className="pointer-events-none absolute left-3 top-[155px] z-0 h-[257px] w-[396px] overflow-hidden opacity-80 transition-transform duration-300 ease-out group-hover:scale-110">
+        <Image src={service.illustration} alt="" fill className="object-cover" sizes="396px" />
       </div>
       <p className="relative z-10 whitespace-pre-line font-serif text-2xl font-bold italic leading-tight text-white">{service.name}</p>
       {service.description ? (
